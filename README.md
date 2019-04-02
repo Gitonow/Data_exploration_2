@@ -1,47 +1,33 @@
 
-# Computational Neuroscience Project Skeleton
+# Data Exploration Project - PSYC 5270
 
-This repository is a skeleton Python package that students in PSYC 5270 can use to get started on their data exploration assignments.
+This repository contains all the files you need to analyze a dataset from CRCNS containing spike data from auditory areas in male zebra finches. The data comes from a study by Theunissen et al. titled _Single-unit recordings from two auditory areas in male zebra finches_.
 
-## Getting started
+## Cloning the repository
 
-Start by cloning the repository: `git clone https://github.com/melizalab/comp-neurosci-skeleton.git`
+Clone the repository: `git clone https://github.com/Gitonow/Data_exploration_2.git`.
 
-This will create a new directory, `comp-neurosci-skeleton`, containing the following items:
+In the directory created on your computer, you will have different items:
 
 - `README.md`: this file
-- `setup.py`:  package description file. You will need to edit this.
-- `requirements.txt`: a list of packages your code depends on
-- `.gitignore`: a list of files git will ignore when telling you what's changed
-- `src`:       a directory where you will put your python code
-- `test`:      a directory where you will put test code
-- `data`:      a directory where your data will live
-- `build`:     a directory where processed output from your analysis will live
+- `setup.py`:  package description file.
+- `requirements.txt`: a list of packages the code depends on
+- `.gitignore`: a list of files git will ignore
+- `src`:       a directory with the Python code
+- `test`:      a directory with some test code
+- `data`:      a directory where the data is located
+- `build`:     a directory where processed output from the analysis will live
 
-Choose a new name for your package. For the PSYC 5270 assignment, use something like `crcns-datasetid-computingid`. Rename the top-level directory (`comp-neurosci-skeleton`) and edit `setup.py` to set the new name and other identifying information.
 
-Now you need to create a github repository of your own. Go to [https://github.com/new](https://github.com/new). Give the repository your chosen name and a description, then click Create Repository. **DO NOT** check the box to initialize the repository with a readme. Ignore the instructions on how to set up your repository, but make a note of the address. It will look something like `https://github.com/dmeliza/dummy.git`
+## Running the code
 
-Finally, set your local directory to track the github repository by running the following commands in your working directory. Replace the repository address in the code below with the one for your project.
-
-``` shell
-git remote rm origin
-git remote add origin https://github.com/dmeliza/dummy.git
-git push -u origin master
-```
-
-If you get an error on the last command, it's probably because you let github initialize your repository. You'll have to delete and re-create the repository on github and then run the last command again.
-
-## Next steps
-
-Edit `data/README.md` to describe how to retrieve data. Better yet, write a script.
-
-Edit `requirements.txt` to add any needed dependencies, then create a virtual environment and install the dependencies as follows:
+On your terminal, go in the directory created above if you are not already in it. Then, run the following command:
 
 ``` shell
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+jupyter notebook
 ```
 
 Alternatively, if you're using anaconda, create a new environment and run the following to install dependencies:
@@ -49,7 +35,11 @@ Alternatively, if you're using anaconda, create a new environment and run the fo
 ``` shell
 conda install git numpy scipy pandas matplotlib notebook
 ```
+Then, in the terminal, run:
+``` shell
+jupyter notebook
+```
 
 Install the project in development mode by running `python setup.py develop`. If you use notebooks, this will ensure that you can access your modules.
 
-Edit this file to describe your actual project.
+You can run the .ipynb file in the `src` folder.
