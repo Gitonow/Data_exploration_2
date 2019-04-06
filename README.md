@@ -19,27 +19,33 @@ In the directory created on your computer, you will have different items:
 - `build`:     a directory where processed output from the analysis will live
 
 
-## Running the code
+## Set up to prevent errors (first time only)
 
 On your terminal, go in the directory created above if you are not already in it. Then, run the following command:
 
 ``` shell
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+jupyter notebook --generate-config
+```
+
+This command will generate a configuration file that you can customize to prevent some errors related to the loading of the data that Python can encounter. After executing this command, the terminal will print a message starting with 
+
+``` shell
+Writing default config to:
+```
+
+Go to that directory (which may be invisible in certain OS) and open the file `jupyter_notebook_config.py`. Search for `c.NotebookApp.iopub_data_rate_limit`. After finding this line, change the value to `c.NotebookApp.iopub_data_rate_limit = 10000000` and comment out the line, i.e. remove the `#` symbol. Save the file. After that, run in the terminal the following command:
+
+``` shell
 jupyter notebook
 ```
 
-Alternatively, if you're using anaconda, create a new environment and run the following to install dependencies:
+Everything should work fine! Now, when you want to execute the code again, you just have to follow the instructions of the next section.
 
-``` shell
-conda install git numpy scipy pandas matplotlib notebook
-```
-Then, in the terminal, run:
+## Run the code
+
+On your terminal, go in the directory created in the first section if you are not already in it. Then, run the following command:
+
 ``` shell
 jupyter notebook
 ```
-
-Install the project in development mode by running `python setup.py develop`. If you use notebooks, this will ensure that you can access your modules.
-
-You can run the .ipynb file in the `src` folder.
+In your browser, go in the `src` folder and run  `project.ipynb` .
