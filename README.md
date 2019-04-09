@@ -39,11 +39,15 @@ Go to that directory (which may be invisible in certain OS) and open the file `j
 jupyter notebook
 ```
 
-Everything should work fine! Now, when you want to execute the code again, you just have to follow the instructions of the next section.
+Everything should work fine! Now, when you want to execute the code again, you just have to follow the instructions of the next section, after importing the data.
+
+## Importing the data
+
+To run the notebooks, you will need the data. You should import it following the instructions in the `README.md` file located in the `data` folder.
 
 ## Run the code
 
-On your terminal, go in the directory created in the first section if you are not already in it. Then, run the following command:
+Once the data has been imported, in your terminal, go in the directory created in the first section if you are not already in it. Then, run the following command:
 
 ``` shell
 jupyter notebook
