@@ -52,4 +52,4 @@ Once the data has been imported, in your terminal, go in the directory created i
 ``` shell
 jupyter notebook
 ```
-In your browser, go in the `src` folder and run  `project.ipynb` .
+In your browser, go in the `src` folder and run  `project.py` .
