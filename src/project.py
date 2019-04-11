@@ -25,8 +25,13 @@ def read_stimuli(path):
     
     for i in range(int(number_files/2)):
         # for each stimuli, read the list of spikes and the file name where it is located
-        pathSpike = path + "/spike" + str(i+1)
-        pathStim = path + "/stim" + str(i+1)
+        if os.name == 'nt':
+            # for Windows
+            pathSpike = path + "\\spike" + str(i+1)
+            pathStim = path + "\\stim" + str(i+1)
+        else:
+            pathSpike = path + "/spike" + str(i+1)
+            pathStim = path + "/stim" + str(i+1)
         listOfSpikes = []
         with open(pathSpike, "rt") as fp:
             # read the array of spikes
@@ -43,27 +48,47 @@ def read_area(path):
     arrayNeur = []
     for neuronName in os.listdir(path):
         # for each neuron in the folder
-        arrayFolder = glob.glob(path+"/"+neuronName+"/"+"*")
+        if os.name == 'nt':
+            # for Windows
+            arrayFolder = glob.glob(path+"\\"+neuronName+"\\"+"*")
+        else:
+            arrayFolder = glob.glob(path+"/"+neuronName+"/"+"*")
         listTypes = []
         for folder in arrayFolder:
             # get the list of the types of stimuli that the neuron was tested with
-            listTypes.append(folder[len(path+"/"+neuronName+"/"):])
+            if os.name == 'nt':
+                # for Windows
+                listTypes.append(folder[len(path+"\\"+neuronName+"\\"):])
+            else:
+                listTypes.append(folder[len(path+"/"+neuronName+"/"):])
         arrayStimuli = []
         for t in listTypes:
             # for each type in the list, read the spikes generated and the stimuli tested
-            arraySpikes = read_stimuli(path+"/"+neuronName+"/"+t)
+            if os.name == 'nt':
+                # for Windows
+                arraySpikes = read_stimuli(path+"\\"+neuronName+"\\"+t)
+            else:
+                arraySpikes = read_stimuli(path+"/"+neuronName+"/"+t)
             arrayStimuli.append({"type": t, "spikes": arraySpikes})
         arrayNeur.append({"name": neuronName, "stimuli": arrayStimuli})
     return arrayNeur
 
 listAreas = ["Field_L_cells","MLd_cells"] # list of areas to get the data from
 
-currentDir = os.getcwd().replace("/src","")+"/data/crcns-aa1" # find the folder where the data is located
+if os.name == 'nt':
+    # for Windows
+    currentDir = os.getcwd().replace("\\src","")+"\\data\\crcns-aa1" # find the folder where the data is located
+else:
+    currentDir = os.getcwd().replace("/src","")+"/data/crcns-aa1" # find the folder where the data is located
 
 arrayAreas = []
 for area in listAreas:
     # read each folder of each area
-    arrayNeurons = read_area(currentDir + "/" + area)
+    if os.name == 'nt':
+        # for Windows
+        arrayNeurons = read_area(currentDir + "\\" + area)
+    else:
+        arrayNeurons = read_area(currentDir + "/" + area)
     arrayAreas.append({"name": area, "neurons": arrayNeurons})
 
 sleep(1.5) # keep output for some time    
