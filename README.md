@@ -39,7 +39,15 @@ Go to that directory (which may be invisible in certain OS) and open the file `j
 jupyter notebook
 ```
 
-Everything should work fine! Now, when you want to execute the code again, you just have to follow the instructions of the next section, after importing the data.
+Everything should work fine! Close the notebook. 
+
+You also have to set up a virtual environment in Python 3.6, which can be done through Anaconda Navigator. After launching the environment, in the terminal window, run the following commands to install the packages required by the notebook:
+
+``` shell
+pip install numpy, scipy, pandas, matplotlib, seaborn, notebook, pyspike
+```
+
+Now, when you want to execute the code again, you just have to follow the instructions of the next section, after importing the data.
 
 ## Importing the data
 
@@ -47,9 +55,9 @@ To run the notebooks, you will need the data. You should import it following the
 
 ## Run the code
 
-Once the data has been imported, in your terminal, go in the directory created in the first section if you are not already in it. Then, run the following command:
+Once the data has been imported, run the virtual environment that you should have been created earlier. Then, in your terminal, go in the directory created in the first section if you are not already in it. Then, run the following command:
 
 ``` shell
 jupyter notebook
 ```
-In your browser, go in the `src` folder and run  `project.py` .
+In your browser, run  `project.ipynb` .

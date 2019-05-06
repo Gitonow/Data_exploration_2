@@ -15,7 +15,7 @@ The direct link to download the data is _https://portal.nersc.gov/project/crcns/
 
 ## Add the data in the local repository
 
-To run the notebooks, you will need to clone the repository from GitHub, which is explained in the `README.md` file located in the main folder of the repository, so that you have it downloaded on your computer. Then, copy the dataset at the root of the `data` folder of the repository.
+To run the notebooks, you will need to clone the repository from GitHub, which is explained in the `README.md` file located in the main folder of the repository, so that you have it downloaded on your computer. Then, copy the dataset at the root of the `data` folder of the repository. In your directory of the project, you should have `project\data\crcns-aa1`. Do not modify the structure of the data.
 
 ## Run the notebooks
 
